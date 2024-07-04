@@ -14,8 +14,11 @@
         tools:targetApi="31">
         <meta-data
             android:name="com.google.android.actions"
-            android:resource="@menu/menu_bottom_nav" />
+            android:resource="@xml/item_spinner" />
 
+        <activity
+            android:name=".initialscreen.OnboardingActivity"
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
