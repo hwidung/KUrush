@@ -6,9 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.kurush_frontend.databinding.FragmentMatchingMainBinding
+import com.example.kurush_frontend.matching.main.adapter.ViewPagerAdapter
+import com.google.android.material.tabs.TabLayoutMediator
 
 class MatchingMainFragment : Fragment() {
     lateinit var binding: FragmentMatchingMainBinding
+    lateinit var tabList : Array<String>
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -16,9 +19,20 @@ class MatchingMainFragment : Fragment() {
     ): View? {
         binding = FragmentMatchingMainBinding.inflate(inflater, container, false)
 
+        initTabLayout()
 
 
         return binding.root
+    }
+
+    private fun initTabLayout() {
+
+        tabList = arrayOf("스터디", "생활습관", "국가별", "자유")
+
+        binding.vpMatchingMain.adapter = ViewPagerAdapter(this)
+        TabLayoutMediator(binding.tlMatchingMain, binding.vpMatchingMain) { tab, position ->
+            tab.text
+        }
     }
 
 
