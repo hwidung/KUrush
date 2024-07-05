@@ -11,7 +11,7 @@ import com.google.android.material.tabs.TabLayoutMediator
 
 class MatchingMainFragment : Fragment() {
     lateinit var binding: FragmentMatchingMainBinding
-    lateinit var tabList : Array<String>
+    private val tabList = arrayListOf("스터디", "생활습관", "국가별", "자유")
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -22,17 +22,17 @@ class MatchingMainFragment : Fragment() {
         initTabLayout()
 
 
+
+
         return binding.root
     }
 
     private fun initTabLayout() {
 
-        tabList = arrayOf("스터디", "생활습관", "국가별", "자유")
-
         binding.vpMatchingMain.adapter = ViewPagerAdapter(this)
         TabLayoutMediator(binding.tlMatchingMain, binding.vpMatchingMain) { tab, position ->
-            tab.text
-        }
+            tab.text = tabList[position]
+        }.attach()
     }
 
 
